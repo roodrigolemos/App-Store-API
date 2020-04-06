@@ -13,6 +13,7 @@
 		B7BDC31F243BEA81004B2BB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7BDC31D243BEA81004B2BB5 /* Main.storyboard */; };
 		B7BDC321243BEA84004B2BB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7BDC320243BEA84004B2BB5 /* Assets.xcassets */; };
 		B7BDC324243BEA84004B2BB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7BDC322243BEA84004B2BB5 /* LaunchScreen.storyboard */; };
+		B7BDC32C243BF0AC004B2BB5 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BDC32B243BF0AC004B2BB5 /* BaseTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		B7BDC320243BEA84004B2BB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7BDC323243BEA84004B2BB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7BDC325243BEA84004B2BB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7BDC32B243BF0AC004B2BB5 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				B7BDC320243BEA84004B2BB5 /* Assets.xcassets */,
 				B7BDC322243BEA84004B2BB5 /* LaunchScreen.storyboard */,
 				B7BDC325243BEA84004B2BB5 /* Info.plist */,
+				B7BDC32B243BF0AC004B2BB5 /* BaseTabBarController.swift */,
 			);
 			path = AppStoreJSONApis;
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7BDC32C243BF0AC004B2BB5 /* BaseTabBarController.swift in Sources */,
 				B7BDC31C243BEA81004B2BB5 /* ViewController.swift in Sources */,
 				B7BDC318243BEA81004B2BB5 /* AppDelegate.swift in Sources */,
 				B7BDC31A243BEA81004B2BB5 /* SceneDelegate.swift in Sources */,
