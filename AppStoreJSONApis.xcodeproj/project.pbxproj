@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B745EFAB243E19E00052D008 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745EFAA243E19E00052D008 /* UIView+Layout.swift */; };
+		B745EFAD243E19F90052D008 /* VerticalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B745EFAC243E19F90052D008 /* VerticalStackView.swift */; };
 		B7BDC318243BEA81004B2BB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BDC317243BEA81004B2BB5 /* AppDelegate.swift */; };
 		B7BDC31A243BEA81004B2BB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BDC319243BEA81004B2BB5 /* SceneDelegate.swift */; };
 		B7BDC31C243BEA81004B2BB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BDC31B243BEA81004B2BB5 /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B745EFAA243E19E00052D008 /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		B745EFAC243E19F90052D008 /* VerticalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStackView.swift; sourceTree = "<group>"; };
 		B7BDC314243BEA81004B2BB5 /* AppStoreJSONApis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreJSONApis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7BDC317243BEA81004B2BB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7BDC319243BEA81004B2BB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B745EFA9243E19580052D008 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B745EFAA243E19E00052D008 /* UIView+Layout.swift */,
+				B745EFAC243E19F90052D008 /* VerticalStackView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		B7BDC30B243BEA81004B2BB5 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +75,7 @@
 		B7BDC316243BEA81004B2BB5 /* AppStoreJSONApis */ = {
 			isa = PBXGroup;
 			children = (
+				B745EFA9243E19580052D008 /* Helpers */,
 				B7BDC330243C102F004B2BB5 /* Views */,
 				B7BDC32D243BFFA9004B2BB5 /* Controller */,
 				B7BDC317243BEA81004B2BB5 /* AppDelegate.swift */,
@@ -168,6 +182,8 @@
 				B7BDC318243BEA81004B2BB5 /* AppDelegate.swift in Sources */,
 				B7BDC32F243BFFC5004B2BB5 /* AppsSearchController.swift in Sources */,
 				B7BDC332243C106A004B2BB5 /* SearchResultCell.swift in Sources */,
+				B745EFAD243E19F90052D008 /* VerticalStackView.swift in Sources */,
+				B745EFAB243E19E00052D008 /* UIView+Layout.swift in Sources */,
 				B7BDC31A243BEA81004B2BB5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
