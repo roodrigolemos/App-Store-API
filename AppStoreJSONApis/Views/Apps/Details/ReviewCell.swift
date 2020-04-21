@@ -16,31 +16,34 @@ class ReviewCell: UICollectionViewCell {
     
     let starsLabel = UILabel(text: "Stars", font: .systemFont(ofSize: 14))
     
-    let bodyLabel = UILabel(text: "Review body\nReview body\nReview body", font: .systemFont(ofSize: 16), numberOfLines: 0)
+    let bodyLabel = UILabel(text: "Review body\nReview body\nReview body\n", font: .systemFont(ofSize: 16), numberOfLines: 0)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = #colorLiteral(red: 0.9423904419, green: 0.942343533, blue: 0.9706194997, alpha: 1)
+        backgroundColor = #colorLiteral(red: 0.9423103929, green: 0.9410001636, blue: 0.9745038152, alpha: 1)
         
         layer.cornerRadius = 16
         clipsToBounds = true
         
-        let stackView = VerticalStackView(arrangedSubviews: [UIStackView(arrangedSubviews: [
-            titleLabel, UIView(), authorLabel
-        ]),
-        starsLabel,
-        bodyLabel
-        ], spacing: 12)
+        let stackView = VerticalStackView(arrangedSubviews: [
+            UIStackView(arrangedSubviews: [
+                titleLabel, authorLabel
+                ], customSpacing: 8),
+            starsLabel,
+            bodyLabel
+            ], spacing: 12)
+        
+        titleLabel.setContentCompressionResistancePriority(.init(0), for: .horizontal)
+        authorLabel.textAlignment = .right
         
         addSubview(stackView)
         stackView.fillSuperview(padding: .init(top: 20, left: 20, bottom: 20, right: 20))
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required init?(coder aDecoder: NSCoder) {
+        fatalError()
     }
-    
     
 }
 
