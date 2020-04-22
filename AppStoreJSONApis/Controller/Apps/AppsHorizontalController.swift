@@ -21,7 +21,6 @@ class AppsHorizontalController: HorizontalSnappingController, UICollectionViewDe
         if let app = appGroup?.feed.results[indexPath.item] {
             didSelectHandler?(app)
         }
-        print(app)
     }
     
     override func viewDidLoad() {
