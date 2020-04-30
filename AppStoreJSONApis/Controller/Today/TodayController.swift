@@ -19,7 +19,11 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         aiv.hidesWhenStopped = true
         return aiv
     }()
-    
+        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.superview?.setNeedsLayout()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +67,8 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
             self.items = [
                 TodayItem.init(category: "Daily List", title: topGrossingGroup?.feed.title ?? "", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellTyple: .multiple, apps: topGrossingGroup?.feed.results ?? []),
                 TodayItem.init(category: "Daily List", title: gamesGroup?.feed.title ?? "", image: #imageLiteral(resourceName: "garden"), description: "", backgroundColor: .white, cellTyple: .multiple, apps: gamesGroup?.feed.results ?? []),
-                TodayItem.init(category: "LIFE HACK", title: "Utilizing your time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way.", backgroundColor: .white, cellTyple: .single, apps: [])
+                TodayItem.init(category: "LIFE HACK", title: "Utilizing your time", image: #imageLiteral(resourceName: "garden"), description: "All the tools and apps you need to intelligently organize your life the right way.", backgroundColor: .white, cellTyple: .single, apps: []),
+                TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", image: #imageLiteral(resourceName: "holiday"), description: "Find out all you need to know on how to travel without packing everything!", backgroundColor: #colorLiteral(red: 0.9842335582, green: 0.9608334899, blue: 0.7254063487, alpha: 1), cellTyple: .single, apps: [])
             ]
             
             
@@ -82,9 +87,10 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         if items[indexPath.item].cellTyple == .multiple {
             let fullController = TodayMultipleAppsController(mode: .fullscreen)
-            fullController.modalPresentationStyle = .fullScreen
-            fullController.results = self.items[indexPath.item].apps
-            present(fullController, animated: true)
+            fullController.apps = self.items[indexPath.item].apps
+            let navController = BackEnabledNavigationController(rootViewController: fullController)
+            navController.modalPresentationStyle = .fullScreen
+            present(navController, animated: true) 
             return
         }
         
@@ -178,7 +184,29 @@ class TodayController: BaseListController, UICollectionViewDelegateFlowLayout {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! BaseTodayCell
         cell.todayItem = items[indexPath.item]
+        
+        (cell as? TodayMultipleAppCell)?.multipleAppsController.collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleMultipleAppsTap)))
+        
         return cell
+    }
+    
+    @objc fileprivate func handleMultipleAppsTap(gesture: UIGestureRecognizer) {
+        let collectionView = gesture.view
+        var superview = collectionView?.superview
+               
+        while superview != nil {
+            if let cell = superview as? TodayMultipleAppCell {
+                guard let indexPath = self.collectionView.indexPath(for: cell) else { return }
+                let appFullscreenController = TodayMultipleAppsController(mode: .fullscreen)
+                let fullscreenNavigationController = BackEnabledNavigationController(rootViewController: appFullscreenController)
+                appFullscreenController.apps = self.items[indexPath.item].apps
+                fullscreenNavigationController.modalPresentationStyle = .fullScreen
+                navigationController?.present(fullscreenNavigationController, animated: true)
+                return
+            }
+                
+            superview = superview?.superview
+        }
     }
     
     static let cellSize: CGFloat = 500
