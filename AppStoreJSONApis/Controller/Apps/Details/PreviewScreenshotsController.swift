@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PreviewScreenShotsController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
+class PreviewScreenshotsController: HorizontalSnappingController, UICollectionViewDelegateFlowLayout {
     
     let cellId = "cellId"
     
@@ -24,14 +24,14 @@ class PreviewScreenShotsController: HorizontalSnappingController, UICollectionVi
         
         override init(frame: CGRect) {
             super.init(frame: frame)
+            imageView.backgroundColor = .purple
             addSubview(imageView)
             imageView.fillSuperview()
         }
         
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
+        required init?(coder aDecoder: NSCoder) {
+            fatalError()
         }
-        
     }
     
     override func viewDidLoad() {
@@ -42,12 +42,12 @@ class PreviewScreenShotsController: HorizontalSnappingController, UICollectionVi
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return app?.screenshotUrls.count ?? 0
+        return app?.screenshotUrls!.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ScreenshotCell
-        let screenshotUrl = self.app?.screenshotUrls[indexPath.item]
+        let screenshotUrl = self.app?.screenshotUrls![indexPath.item]
         cell.imageView.sd_setImage(with: URL(string: screenshotUrl ?? ""))
         return cell
     }
@@ -55,4 +55,5 @@ class PreviewScreenShotsController: HorizontalSnappingController, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: 250, height: view.frame.height)
     }
+    
 }
